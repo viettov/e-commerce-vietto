@@ -1,3 +1,23 @@
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: hotpink;
+  border-bottom: solid 1px black;
+}
+
+.nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+a {
+  padding: 10px;
+  color:brown;
+}
+
+
 .App {
   text-align: center;
 }
