@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import ItemList from '../ItemList/ItemList';
 import ItemCount from '../ItemCount/ItemCount';
-import {products} from '../../utils/products/products';
+import products from '../../utils/products/products.json';
 
 
 const ItemListContainer = (props) => {
@@ -9,7 +9,7 @@ const ItemListContainer = (props) => {
     
     const myPromise = new Promise((resolve, reject) => {
         setTimeout(() => {
-            resolve([products]);
+            resolve(products);
         }, 2000);
     });
     myPromise.then((res) => setProductList(res))
