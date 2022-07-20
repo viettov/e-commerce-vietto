@@ -8,9 +8,8 @@ const ItemList = ({ items }) => {
             items.map(item => 
             <Item 
             key={item.id}
-            titulo={item.titulo}
-            imagen={item.img}
-            descripcion={item.descripcion}/>)
+            titulo={item.titulo} />
+            )
         }
     </>
     )
