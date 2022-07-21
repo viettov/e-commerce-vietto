@@ -1,4 +1,4 @@
-export const products = [
+const products = [
     {
         "id": 1,
         "titulo": "Vela Glow Silver",
@@ -6,6 +6,7 @@ export const products = [
         "descripcion": "Vela aromatica de cera vegetal en vaso de vidrio de 9,5 cm de diametro y 11 cm de alto.",
         "stock": 5,
         "initial": 0,
+        "idCategory": 1,
         "precio": 1000
     },
     {
@@ -15,6 +16,7 @@ export const products = [
         "descripcion": "Vela aromatica de cera vegetal en vaso de vidrio de 9,5 cm de diametro y 11 cm de alto.",
         "stock": 3,
         "initial": 0,
+        "idCategory": 1,
         "precio": 1300
     },
     {
@@ -24,6 +26,10 @@ export const products = [
         "descripcion": "Vela aromatica de cera vegetal en vaso de vidrio importado de 10,7 cm de diametro y 7 cm de alto",
         "stock": 6,
         "initial": 0,
+        "idCategory": 3,
         "precio": 2000
     }
 ]
+module.exports = {
+    products,
+}

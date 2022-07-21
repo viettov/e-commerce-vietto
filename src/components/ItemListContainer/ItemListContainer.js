@@ -1,28 +1,33 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import ItemList from '../ItemList/ItemList';
 import ItemCount from '../ItemCount/ItemCount';
-import products from '../../utils/products/products.json';
 import ItemDetailContainer from "../ItemDetailContainer/ItemDetailContainer";
+import customFetch from "../../utils/customFetch";
+import { useParams } from 'react-router';
+const { products } = require('../../utils/products/products');
 
 
-const ItemListContainer = (props) => {
-    const[productList, setProductList] = useState([])
+const ItemListContainer = () => {
+    const[dato, setDato] = useState([])
+    const { id } = useParams();
     
-    const myPromise = new Promise((resolve, reject) => {
-        setTimeout(() => {
-            resolve(products);
-        }, 2000);
-    });
-    myPromise.then((res) => setProductList(res))
-    
+
+    useEffect(() => {
+        if (id === undefined) {
+            customFetch(2000, products)
+                .then(resolve => setDato(resolve))
+                .catch(reject => console.log(reject))
+        } else {
+            customFetch(2000, products.filter(item => item.categoryId === parseInt(id)))
+            .then(resolve => setDato(resolve))
+            .catch(reject => console.log(reject))
+        }
+    }, [id]);    
 
 
     return (
         <div className="ItemListContainer">
-            <h3>{props.titulo}</h3>
-            <p>{props.descripcion}</p>
-            <ItemList items={productList}/>
-            <ItemDetailContainer/>
+            <ItemList items={dato}/>
         </div>
     )
 }

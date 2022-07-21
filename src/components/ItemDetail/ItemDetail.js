@@ -1,12 +1,21 @@
+import ItemCount from '../ItemCount/ItemCount';
 
-const ItemDetail = ( {item} ) => {
+const ItemDetail = ({ item }) => {
+
+    const onAdd = (qty) => {
+        alert("You have selected " + qty + " items.");
+    }
+
     return (
         <>
         {
-            <h3>{item.titulo}</h3>
+            item && item.image
+            ?
+            <h3>{item.descripcion}</h3>
+            : <p>Cargando...</p>
         }
         </>
-    )
+    );
 }
 
 export default ItemDetail;
